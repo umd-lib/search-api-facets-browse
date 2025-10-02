@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * facets_browse template
+ *
+ * Variables:
+ *   facets_path : URL to search result with facet as last parameter
+ *   facets : Array of facets
+ *   block_title : Block title for UI
+ *   search_index: search source for facets
+ *   facet_name : facet being searched
+ *   collapsed : if defaults to collapsed
+ */
+#}
+{{ attach_library('facets_browse/facets_browse') }}
+{% set facet_class = search_index ~ '-' ~ facet_name|clean_class %}
+<div class="accordion">
+  <div class="card">
+    <div id="facets-accordion-{{ facet_class }}" class="{{ search_index }}-browse facets-browse">
+      <div id="facets-accordion-{{ facet_class }}-header" class="card-header">
+        <button class="btn" data-toggle="collapse" data-target="#facets-accordion-{{ facet_class }}-content"
+                aria-expanded="{% if collapsed %}{% else %}true{% endif %}" aria-controls="#facets-accordion-{{ facet_class }}-content">{{ block_title }}</button>
+      </div>
+      <div id="facets-accordion-{{ facet_class }}-content" class="collapse {% if collapsed %}{% else %}show{% endif %}"
+           aria-labeledby="facets-accordion-{{ facet_class }}-header" data-parent="#facets-accordion-{{ facet_class }}">
+        <div class="card-body">
+          <ul>
+            {% for facet in facets %}
+              <li class="{{ facet_class }}-facet facet-browse">
+                {{ facet }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

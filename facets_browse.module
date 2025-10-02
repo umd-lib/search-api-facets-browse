@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Module file for facets_browse module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function facets_browse_theme() {
+  return [
+    'facets_browse' => [
+      'variables' => [
+        'facets_path' => '',
+        'facets' => '',
+        'block_title' => '',
+        'search_index' => '',
+        'facet_name' => '',
+        'collapsed' => '',
+      ],
+    ],
+  ];
+}

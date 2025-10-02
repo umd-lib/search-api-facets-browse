@@ -1,0 +1,10 @@
+name: Facets Browse
+description: Generate browse blocks for Search API facets.
+
+package: 'Facets'
+dependencies:
+  - facets
+  - search_api
+type: module
+
+core_version_requirement: ^11 || ^10
