@@ -7,5 +7,5 @@
 }
 
 .facets-browse ul li:before {
-  content: "";
+  content: "" !important;
 }
