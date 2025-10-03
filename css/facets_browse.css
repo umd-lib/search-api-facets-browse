@@ -1,6 +1,11 @@
-.facets-browse {
+.facets-browse ul {
+  columns: 240px 5;
 }
 
-.facets-browse ul {
-  columns: 191px 5;
+.facets-browse ul li {
+  padding-left: 0 !important;
+}
+
+.facets-browse ul li:before {
+  content: "";
 }
