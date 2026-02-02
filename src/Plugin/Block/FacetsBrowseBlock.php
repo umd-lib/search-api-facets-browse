@@ -239,7 +239,8 @@ class FacetsBrowseBlock extends BlockBase implements ContainerFactoryPluginInter
   public function getIndexFields(array &$form, FormStateInterface $form_state) {
     $input = $form_state->getUserInput();
     $element = $form_state->getTriggeringElement();
-    $solr_field = $form['solr_field'];
+    // if ($selectedValue = $form_state->getValue('solr_field')) {
+    // $solr_field = $form['solr_field'];
     if ($selected_index = $element['#value']) {
       return $this->generateSolrField($selected_index);
     }
@@ -256,7 +257,10 @@ class FacetsBrowseBlock extends BlockBase implements ContainerFactoryPluginInter
     foreach ($fields as $field => $val) {
       $keys[$field] = $field;
     }
-    $solr_field = $form['solr_field'];
+    $solr_field = [];
+    if (!empty($form['solr_field'])) {
+      $solr_field = $form['solr_field'];
+    }
     $solr_field['#description'] = t('Solr field for faceting. This should match the Facet Field in the Facets configuration.');
     $solr_field['#required'] = TRUE;
     $solr_field['#title'] = t('Solr Field');

@@ -1,0 +1,16 @@
+{
+    "name": "umd-lib/search_api_facets_browse",
+    "description": "Provides a configurable facets block for Search API Facets.",
+    "type": "drupal-module",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "UMD Libraries"
+        }
+    ],
+    "require": {
+      },
+    "suggest": {
+    },
+    "minimum-stability": "beta"
+}

@@ -14,25 +14,12 @@
 #}
 {{ attach_library('facets_browse/facets_browse') }}
 {% set facet_class = search_index ~ '-' ~ facet_name|clean_class %}
-<div class="accordion">
-  <div class="card">
-    <div id="facets-accordion-{{ facet_class }}" class="{{ search_index }}-browse facets-browse">
-      <div id="facets-accordion-{{ facet_class }}-header" class="card-header">
-        <button class="btn" data-toggle="collapse" data-target="#facets-accordion-{{ facet_class }}-content"
-                aria-expanded="{% if collapsed %}{% else %}true{% endif %}" aria-controls="#facets-accordion-{{ facet_class }}-content">{{ block_title }}</button>
-      </div>
-      <div id="facets-accordion-{{ facet_class }}-content" class="collapse {% if collapsed %}{% else %}show{% endif %}"
-           aria-labeledby="facets-accordion-{{ facet_class }}-header" data-parent="#facets-accordion-{{ facet_class }}">
-        <div class="card-body">
-          <ul>
-            {% for facet in facets %}
-              <li class="{{ facet_class }}-facet facet-browse">
-                {{ facet }}
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="{{ search_index }}-browse facets-browse">
+  <ul>
+    {% for facet in facets %}
+      <li class="{{ facet_class }}-facet facet-browse">
+        {{ facet }}
+      </li>
+    {% endfor %}
+  </ul>
 </div>
