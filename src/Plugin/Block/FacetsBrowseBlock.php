@@ -100,7 +100,7 @@ class FacetsBrowseBlock extends BlockBase implements ContainerFactoryPluginInter
 
     $facetSet = $query->getFacetSet();
     if (!empty($collection)) {
-      $query->createFilterQuery('presentation_set_label')->setQuery('presentation_set_label:"'. $collection . '"')->addTag("collection");
+      $query->createFilterQuery('presentation_set__facet')->setQuery('presentation_set__facet:"'. $collection . '"')->addTag("collection");
       $query->createFilterQuery('is_discoverable')->setQuery('is_discoverable:true')->addTag("discoverable");
       $facetSet->createFacetField($solr_field)->setField($solr_field)->setLimit(300);
     } else {
